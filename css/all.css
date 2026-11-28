@@ -1065,3 +1065,6 @@ footer{--line:rgba(255,255,255,.14);color:#fff;background:radial-gradient(70% 60
 .bowling-rules .ip-ico{width:42px;height:42px}
 .bowling-rules b{display:block;color:var(--navy);font-weight:600}
 .bowling-rules span{color:var(--muted);font-size:.9rem}
+span.b-name {
+    display: none!important;
+}
