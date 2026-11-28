@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trampoline Park — Amanah Mall Lahore | Little Feet, Big Leaps!</title>
+<meta name="description" content="Pakistan&#x27;s largest indoor trampoline park at Amanah Mall, Lahore: foam pits, slam-dunk trampolines, dodgeball, wall-run, trapeze and kids&#x27; zones. PKR 799 per hour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/all.css">
+<link rel="stylesheet" href="css/responsive.css">
+<!-- Motion gate: hides animated elements before first paint; reveals everything if custom.js never runs -->
+<script>document.documentElement.classList.add("ip-anim-ready");setTimeout(function(){var d=document.documentElement;if(!d.classList.contains("ip-anim-live"))d.classList.add("ip-anim-failsafe")},4000);</script>
+<!-- GSAP 3 + ScrollTrigger (loaded once per page) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="js/custom.js" defer></script>
+</head>
+<body class="light-top ip-page trampoline-page">
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <a href="amanah-mall-redesign-new.html" class="logo" id="logo" aria-label="Amanah Mall home">
+    <img src="images/amanah-mall-logo.webp" width="200" height="193" alt="Amanah Mall">
+    <span class="wordmark">Amanah<small>Shopping Rediscovered</small></span>
+  </a>
+  <nav aria-label="Primary">
+    <ul class="nav-links">
+      <li><a href="amanah-mall-redesign-new.html#explore">Shopping</a></li>
+      <li><a href="shopping-brands.html">Stores</a></li>
+      <li><a href="amanah-mall-redesign-new.html#dining">Dining</a></li>
+      <li><a href="amanah-mall-redesign-new.html#entertainment">Entertainment</a></li>
+      <li><a href="amanah-mall-redesign-new.html#offers">Offers</a></li>
+      <li><a href="amanah-mall-redesign-new.html#visit">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="openSearch" aria-label="Search stores, dining and entertainment">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+    </button>
+    <a class="icon-btn acct" href="#" aria-label="My account">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+    </a>
+    <button class="menu-btn" id="openMenu" aria-label="Open menu" aria-expanded="false">
+      <span class="lbl">Menu</span><span class="bars"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<!-- Full-screen menu -->
+<div class="overlay" id="menu" aria-hidden="true">
+  <div class="overlay-top">
+    <a href="amanah-mall-redesign-new.html" class="logo"><img src="images/amanah-mall-logo.webp" width="200" height="193" alt="Amanah Mall"></a>
+    <button class="close-btn" id="closeMenu" aria-label="Close menu"></button>
+  </div>
+  <div class="overlay-body">
+    <ul class="overlay-menu">
+      <li><a href="amanah-mall-redesign-new.html#explore" data-close>Shopping</a></li>
+      <li><a href="shopping-brands.html" data-close>Stores</a></li>
+      <li><a href="amanah-mall-redesign-new.html#dining" data-close>Dining</a></li>
+      <li><a href="amanah-mall-redesign-new.html#entertainment" data-close>Entertainment</a></li>
+      <li><a href="amanah-mall-redesign-new.html#offers" data-close>Offers</a></li>
+      <li><a href="amanah-mall-redesign-new.html#visit" data-close>Plan Your Visit</a></li>
+      <li><a href="amanah-mall-redesign-new.html#footer" data-close>Contact Us</a></li>
+    </ul>
+    <div class="overlay-aside">
+      <div><h4>Find us</h4>Link Road, Model Town<br>Lahore, Pakistan</div>
+      <div><h4>Call</h4><a href="tel:04235131699">042 3513 1699</a></div>
+      <div><h4>Write</h4><a href="mailto:info@amanahmall.com.pk">info@amanahmall.com.pk</a></div>
+      <div><h4>Today</h4>Shops open 12 PM – 9 PM (Mon–Sat) · 2 PM – 9 PM (Sun)</div>
+    </div>
+  </div>
+</div>
+
+<!-- Search -->
+<div class="search" id="search" aria-hidden="true" role="dialog" aria-label="Search">
+  <div class="search-head"><button class="close-btn" id="closeSearch" aria-label="Close search"></button></div>
+  <div class="search-field">
+    <label for="q" class="eyebrow">Search stores, dining &amp; entertainment</label>
+    <input id="q" type="search" placeholder="Try “Sapphire”, “parking” or “bowling”" autocomplete="off">
+  </div>
+  <div class="search-results" id="results"></div>
+  <p class="search-empty" id="noResults" hidden>Nothing matches that yet — try another name.</p>
+</div>
+
+<main id="top">
+<section class="ip-hero" aria-labelledby="pageTitle">
+  <div class="ip-hero-grid">
+    <div>
+      <nav aria-label="Breadcrumb"><ol class="ip-crumbs" data-ip-hero><li><a href="amanah-mall-redesign-new.html">Home</a></li><li><span aria-current="page">Trampoline Park</span></li></ol></nav>
+      <span class="eyebrow" data-ip-hero>Trampoline Park · 2nd floor</span>
+      <h1 class="display ip-title ip-split" id="pageTitle" data-ip-hero-title><span class="split-line"><span>Little feet,</span></span><span class="split-line"><span><em>big leaps!</em></span></span></h1>
+      <p class="ip-lede" data-ip-hero><strong>Pakistan's largest indoor trampoline facility.</strong>Interconnected trampolines, foam pits, trapezes, slam-dunk basketball zones, dodgeball courts and more, on the 2nd floor of Amanah Mall.</p>
+      <ul class="ip-chips" data-ip-hero><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 4.5-9 4.5-9-4.5z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>2nd floor</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>PKR 799 / hour</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat 12 – 9 PM</li></ul>
+      <div class="ip-ctas" data-ip-hero><a class="btn solid" href="#activities">See activities<span class="arr"></span></a><a class="btn dark" href="tel:04235131699">Call us<span class="arr"></span></a></div>
+    </div>
+    <div class="ip-hero-wrap"><div class="trampoline-hero-media"><figure class="ip-media ip-hero-media has-shade" data-ip-hero-img>
+      <video data-ip-video muted loop playsinline preload="none" poster="https://amanahmall.com.pk/wp-content/uploads/2025/07/trampoline-2.jpg" aria-label="The Trampoline Park at Amanah Mall"><source src="https://amanahmall.com.pk/wp-content/uploads/2025/07/trampoline.mp4" type="video/mp4"></video>
+      <button class="ip-video-toggle" type="button" aria-pressed="false" aria-label="Play or pause video"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+    </figure><span class="trampoline-bounce" aria-hidden="true"></span></div></div>
+  </div>
+</section><section class="section ip-white" id="activities" aria-labelledby="acTitle">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-ip-reveal>Activities</span>
+      <h2 class="display ip-split" id="acTitle"><span class="split-line"><span>Six ways</span></span><span class="split-line"><span><em>to bounce</em></span></span></h2>
+    </div>
+    <p data-ip-reveal>Groups of any size are welcome, from little ones to teens and parents.</p>
+  </div>
+  <div class="trampoline-acts"><article class="trampoline-act" data-ip-reveal><b>01</b><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M5 19c0-3 2-4 3.5-4S12 16 12 19M12 19c0-3 2-4 3.5-4S19 16 19 19"/><path d="M8 11c0-2 1.6-3 3-3s2.5 1 2.5 3"/></svg></span><h3>Foam pit jumps</h3><p>Leap into deep foam pits for soft, safe landings.</p></article><article class="trampoline-act" data-ip-reveal><b>02</b><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M7 5l1.5 6h7L17 5"/><circle cx="12" cy="17" r="4"/><path d="M8 17h8M12 13v8"/></svg></span><h3>Slam-dunk trampolines</h3><p>Bounce high and dunk in the slam-dunk basketball zones.</p></article><article class="trampoline-act" data-ip-reveal><b>03</b><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.5 9.5C8 9 10 6 10 3.2M20.5 14.5C16 15 14 18 14 20.8"/></svg></span><h3>Dodgeball courts</h3><p>Dedicated courts for fast, bouncy games of dodgeball.</p></article><article class="trampoline-act" data-ip-reveal><b>04</b><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 3v18M4 8h8M4 13h12M4 18h7"/><circle cx="17" cy="6" r="1.8"/><path d="m15 9 2 3-3 2"/></svg></span><h3>Wall-run zones</h3><p>Run, bounce and push off the walls.</p></article><article class="trampoline-act" data-ip-reveal><b>05</b><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v8M17 3v8M5 11h14"/><circle cx="12" cy="15" r="2"/><path d="M12 17v4"/></svg></span><h3>Trapeze &amp; freestyle</h3><p>Swing from the trapeze or jump freely across open trampolines.</p></article><article class="trampoline-act" data-ip-reveal><b>06</b><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="2.5"/><path d="M8 21l1-7-3-2 3-3h6l3 3-3 2 1 7"/></svg></span><h3>Kids' bouncing zones</h3><p>Designated areas just for younger children.</p></article></div>
+</section><section class="section ip-mist" id="safety" aria-labelledby="sfTitle">
+  <div class="ip-duo">
+    <div>
+      <span class="eyebrow" data-ip-reveal>Safety &amp; pricing</span>
+      <h2 class="display ip-split" id="sfTitle"><span class="split-line"><span>Jump high,</span></span><span class="split-line"><span><em>land safe</em></span></span></h2>
+      <div class="trampoline-ticket" data-ip-reveal><div><span class="ip-kicker">Entry</span><h3>One hour of access</h3><p>Per person. Hours follow the mall's play-area timings.</p></div><div class="trampoline-price"><small>Per person</small>PKR 799</div></div>
+    </div>
+    <ul class="trampoline-safety"><li data-ip-reveal><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c.8-4 3.6-6.5 7-6.5s6.2 2.5 7 6.5"/><path d="m10 15 2 3 2-3"/></svg></span><div><b>Trained staff</b><span>All areas are supervised by trained staff.</span></div></li><li data-ip-reveal><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M5 19c0-3 2-4 3.5-4S12 16 12 19M12 19c0-3 2-4 3.5-4S19 16 19 19"/><path d="M8 11c0-2 1.6-3 3-3s2.5 1 2.5 3"/></svg></span><div><b>Soft landings</b><span>Padded flooring and foam pits cushion every jump.</span></div></li><li data-ip-reveal><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h13l5-3v10l-5-3H3z"/><path d="M7 15v4"/><path d="M5 19h4"/></svg></span><div><b>CCTV monitoring</b><span>Cameras keep an eye on every zone.</span></div></li><li data-ip-reveal><span class="ip-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 10 4-1.7 7-5.6 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b>Regular checks</b><span>Equipment is checked and the park is cleaned regularly. Please follow staff guidance at all times.</span></div></li></ul>
+  </div>
+  <div class="ip-gallery ip-gap-xl"><figure class="ip-media" data-ip-fallback data-ip-img><img src="https://amanahmall.com.pk/wp-content/uploads/2025/07/trampoline-2.jpg" width="900" height="900" alt="The Trampoline Park at Amanah Mall" loading="lazy" decoding="async"></figure><figure class="ip-media" data-ip-fallback data-ip-img><img src="https://amanahmall.com.pk/wp-content/uploads/2025/07/trampoline-3.jpg" width="900" height="900" alt="The Trampoline Park at Amanah Mall" loading="lazy" decoding="async"></figure><figure class="ip-media" data-ip-fallback data-ip-img><img src="https://amanahmall.com.pk/wp-content/uploads/2025/07/trampoline-6.jpg" width="900" height="900" alt="The Trampoline Park at Amanah Mall" loading="lazy" decoding="async"></figure><figure class="ip-media" data-ip-fallback data-ip-img><img src="https://amanahmall.com.pk/wp-content/uploads/2025/07/trampoline-7.jpg" width="900" height="900" alt="The Trampoline Park at Amanah Mall" loading="lazy" decoding="async"></figure></div>
+</section><section class="section ip-white" id="faqs" aria-labelledby="tp-title">
+  <div class="ip-faq-wrap">
+    <div class="ip-faq-aside">
+      <span class="eyebrow" data-ip-reveal>Trampoline Park FAQs</span>
+      <h2 class="display ip-split" id="tp-title"><span class="split-line"><span>Before you</span></span><span class="split-line"><span><em>bounce</em></span></span></h2>
+      
+      <div class="ip-hours" data-ip-reveal><div class="ip-hours-head"><h3>Play areas</h3><span>2nd floor</span></div><dl><div data-ip-days="1,2,3,4,5,6"><dt>Monday – Saturday</dt><dd>12:00 PM – 9:00 PM</dd></div><div data-ip-days="0"><dt>Sunday</dt><dd>2:00 PM – 9:00 PM</dd></div></dl></div><div class="ip-gap"><div class="ip-contact-card" data-ip-reveal><span class="ip-kicker">Group visits &amp; questions</span><a href="tel:04235131699">042 3513 1699</a><a href="mailto:info@amanahmall.com.pk">info@amanahmall.com.pk</a></div></div>
+    </div>
+    <ul class="ip-faq">
+      <li class="ip-faq-item" data-ip-reveal>
+        <h3 class="ip-faq-q"><button type="button" aria-expanded="false" aria-controls="tp-a1" id="tp-q1"><span class="n">01</span><span>What is the Trampoline Park at Amanah Mall?</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ip-faq-a" id="tp-a1" role="region" aria-labelledby="tp-q1"><div><div class="ip-faq-inner"><p>Pakistan's largest indoor trampoline facility. It has interconnected trampolines, foam pits, trapezes, slam-dunk basketball zones, dodgeball courts and more, on the mall's entertainment floors.</p></div></div></div>
+      </li><li class="ip-faq-item" data-ip-reveal>
+        <h3 class="ip-faq-q"><button type="button" aria-expanded="false" aria-controls="tp-a2" id="tp-q2"><span class="n">02</span><span>Where is it located and when is it open?</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ip-faq-a" id="tp-a2" role="region" aria-labelledby="tp-q2"><div><div class="ip-faq-inner"><p>It's on the 2nd floor of Amanah Mall. The play areas are open Monday to Saturday, 12:00 PM to 9:00 PM, and Sunday, 2:00 PM to 9:00 PM.</p></div></div></div>
+      </li><li class="ip-faq-item" data-ip-reveal>
+        <h3 class="ip-faq-q"><button type="button" aria-expanded="false" aria-controls="tp-a3" id="tp-q3"><span class="n">03</span><span>What activities are available?</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ip-faq-a" id="tp-a3" role="region" aria-labelledby="tp-q3"><div><div class="ip-faq-inner"><p>Foam pit jumps, slam-dunk trampolines, dodgeball courts, wall-run zones, trapeze and freestyle jump areas, and designated kids' bouncing zones for younger children.</p></div></div></div>
+      </li><li class="ip-faq-item" data-ip-reveal>
+        <h3 class="ip-faq-q"><button type="button" aria-expanded="false" aria-controls="tp-a4" id="tp-q4"><span class="n">04</span><span>Is it safe? How is safety managed?</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ip-faq-a" id="tp-a4" role="region" aria-labelledby="tp-q4"><div><div class="ip-faq-inner"><p>Trained staff supervise all areas, and padded flooring and foam pits provide soft landings. CCTV monitors visitors, and cleaning and equipment checks are regular. Please follow staff guidance at all times.</p></div></div></div>
+      </li><li class="ip-faq-item" data-ip-reveal>
+        <h3 class="ip-faq-q"><button type="button" aria-expanded="false" aria-controls="tp-a5" id="tp-q5"><span class="n">05</span><span>What is the pricing?</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="ip-faq-a" id="tp-a5" role="region" aria-labelledby="tp-q5"><div><div class="ip-faq-inner"><p>PKR 799 per person for 1 hour of access.</p></div></div></div>
+      </li>
+    </ul>
+  </div>
+</section><section class="ip-cta ip-white" aria-labelledby="tpCta">
+  <div class="ip-cta-panel" data-ip-reveal>
+    <div>
+      <span class="eyebrow">More to play</span>
+      <h2 class="display" id="tpCta">Keep the <em>fun going</em></h2>
+      <p>Magic Planet on the 4th floor has bumper cars, roller skating, go-karts, arcade games and soft play.</p>
+    </div>
+    <div class="ip-ctas"><a class="btn solid" href="magic-planet.html">Magic Planet<span class="arr"></span></a><a class="btn " href="food-court.html">Food court<span class="arr"></span></a></div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer id="footer">
+  <div class="f-top">
+    <div class="f-news">
+      <a href="amanah-mall-redesign-new.html" class="logo" id="flogo">
+        <img src="images/amanah-mall-logo.webp" width="200" height="193" loading="lazy" alt="Amanah Mall">
+        <span class="wordmark">Amanah<small>Shopping Rediscovered</small></span>
+      </a>
+      <h3>Be first to hear about <em style="color:var(--gold-2)">festivals &amp; events</em></h3>
+      <p>New stores, seasonal campaigns and family events — straight to your inbox.</p>
+      <form class="f-form" id="newsForm" novalidate>
+        <label for="email" class="sr-only">Email address</label>
+        <input id="email" type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="f-msg" id="fMsg" role="status"></p>
+    </div>
+    <div class="f-col">
+      <h5>Quick links</h5>
+      <ul><li><a href="about-us.html">About Us</a></li><li><a href="floor-map.html">Floor Map</a></li><li><a href="events.html">Recent Events</a></li><li><a href="news.html">Latest News</a></li><li><a href="news.html">Blog</a></li><li><a href="contacts.html">How to Find Us</a></li></ul>
+    </div>
+    <div class="f-col">
+      <h5>Store directory</h5>
+      <ul><li><a href="shopping-brands.html#women">Fashion &amp; Pret</a></li><li><a href="shopping-brands.html#men">Menswear</a></li><li><a href="shopping-brands.html#beauty">Beauty &amp; Fragrance</a></li><li><a href="shopping-brands.html#footwear">Footwear</a></li><li><a href="food-court.html">Food Court</a></li><li><a href="amanah-mall-redesign-new.html#entertainment">Entertainment</a></li></ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <ul><li>Link Road, Model Town,<br>Lahore, Pakistan</li><li><a href="tel:04235131699">042 3513 1699</a></li><li><a href="mailto:info@amanahmall.com.pk">info@amanahmall.com.pk</a></li></ul>
+    </div>
+  </div>
+
+  <div class="f-giant" aria-hidden="true">Amanah Mall</div>
+
+  <div class="f-bottom">
+    <span>© <span id="yr"></span> Amanah Mall. All rights reserved.</span>
+    <div class="socials">
+      <a href="https://www.facebook.com/amanahmall/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg></a>
+      <a href="https://www.instagram.com/amanahmall/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.9 7c-.1-1.6-.4-3-1.6-4.2S17.6 1.2 16 1.1C14.4 1 9.6 1 8 1.1 6.4 1.2 5 1.5 3.8 2.7S2.1 5.4 2.1 7C2 8.6 2 13.4 2.1 15c.1 1.6.4 3 1.6 4.2s2.7 1.5 4.2 1.6c1.6.1 6.4.1 8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.7 1.6-4.2c.1-1.6.1-6.4.2-8zm-2 10a3.3 3.3 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4A3.3 3.3 0 0 1 4.9 17c-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7A3.3 3.3 0 0 1 6.7 3.8C8 3.3 11 3.4 12.4 3.4s4.4-.1 5.7.4a3.3 3.3 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7z"/></svg></a>
+      <a href="https://www.youtube.com/c/AmanahMall" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg></a>
+      <a href="https://twitter.com/TheAmanahMall" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M17.8 2.5h3.3l-7.2 8.2 8.5 11.2h-6.6l-5.2-6.8-6 6.8H1.3l7.7-8.8L.9 2.5h6.8l4.7 6.2 5.4-6.2zm-1.2 17.4h1.8L7.1 4.4H5.1l11.5 15.5z"/></svg></a>
+      <a href="https://pk.linkedin.com/company/amanah-mall" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5z"/></svg></a>
+    </div>
+    <span>Link Road, Model Town · Lahore</span>
+  </div>
+</footer>
+
+</body>
+</html>
